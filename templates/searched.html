@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    search results
+{% endblock title %}
+    
+{% block content %}
+    {% if is_empty %}
+        <h3>No results</h3>
+    {% else %}
+        <div class="ui segment">
+            <div class="ui grid">
+                <div class="row">
+                    <div class="three wide column">
+                        <img class="ui small circular image" src={{profile.avatar.url}}>
+                    </div>
+                    <div class="thirteen wide column">
+                        <h3>{{profile.user}}</h3>
+                        <p>{{profile.bio}}</p>
+                        <a href="{{profile.get_absolute_url}}"><button class="ui primary button mb-5 w-big">See profile</button></a>
+                        <br>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock content %}
+
+
+
