@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My profile
+{% endblock title %}
+
+{% block content %}
+
+    <!--Profile info-->
+    <div class="ui segment">
+        {% if is_confirmed %}
+            <div class="ui green message">Your profile has been updated</div>
+        {% endif %}
+        <h1>My profile - {{obj.user}}</h1>
+        <p>{{obj.first_name}} {{obj.last_name}}</p>
+        <img src="{{obj.avatar.url}}" alt="avatar" class="avatar-sm">
+        <p>{{obj.bio}}</p>
+        <p>{{obj.country}}</p>
+        <h5>Friends</h5>
+        <ul>
+            {% for friend in obj.get_friends %}
+                <li>{{friend}}</li>
+            {% endfor %}
+        </ul>
+        <p>Total friends: {{obj.get_friends_n}}</p>
+        <div>
+            <p>Number of posts: {{obj.get_posts_n}}</p>
+            <p>Number of likes given: {{obj.get_likes_given_n}}</p>
+            <p>Number of likes received: {{obj.get_likes_received_n}}</p>
+
+            
+        </div>
+    </div>
+
+    
+
+    <button class='ui secondary button' id='modal-btn'>Update profile</button>
+    
+    <!--Modal for upload profile-->
+    <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+            Update Your profile
+        </div>
+        <div class="image content">
+            <div class="ui medium image">
+            <img src="{{obj.avatar.url}}" alt="avatar" class="avatar-sm">
+            </div>
+            <div class="description">
+                <div class="ui header">Update your profile my friend</div>
+                <form action="" method="POST" class="ui form" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button type='submit' class="ui positive right labeled icon button">
+                        Update
+                        <i class="checkmark icon"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+  
+    
+{% endblock content %}
