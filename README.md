@@ -3,7 +3,7 @@ social network simulator developed using django
 
 
 ## General info
-This project is a social network simulator web where you can create, comment and delete post, follow other users, sign in, sign up, sign out, and other more funtionabilities.
+This project is a social network simulator web where you can create, comment and delete posts, follow other users, sign in, sign up, sign out, and other more funtionabilities.
 	
 ## Technologies
 Project is created with:
