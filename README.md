@@ -16,3 +16,6 @@ To run this project, download it locally, then:
 $ cd ../social-meth
 $ python manage.py runserver
 ```
+
+## See here
+https://social-meth.herokuapp.com/
